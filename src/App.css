@@ -1,0 +1,227 @@
+/* App-level styles */
+
+/* Card */
+.todoapp {
+  background: var(--card);
+  margin: 130px 0 40px;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+/* Large heading */
+.todoapp h1 {
+  position: absolute;
+  top: -155px;
+  width: 100%;
+  margin: 0;
+  font-size: 100px;
+  font-weight: 100;
+  text-align: center;
+  color: rgba(175, 47, 47, 0.15);
+}
+
+/* Input */
+.new-todo {
+  width: 100%;
+  font-size: 24px;
+  line-height: 1.4em;
+  padding: 16px 16px 16px 60px;
+  border: none;
+  background: rgba(0, 0, 0, 0.003);
+  box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+}
+
+.new-todo::placeholder {
+  font-style: italic;
+  font-weight: 300;
+  color: #e6e6e6;
+}
+
+/* Main */
+.main {
+  position: relative;
+  border-top: 1px solid var(--border);
+}
+
+/* Toggle all (original arrow) */
+.toggle-all {
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  position: absolute;
+  left: -9999px;
+}
+
+.toggle-all + label {
+  width: 60px;
+  height: 34px;
+  font-size: 0;
+  position: absolute;
+  top: -52px;
+  left: -13px;
+  transform: rotate(90deg);
+}
+
+.toggle-all + label::before {
+  content: "❯";
+  font-size: 22px;
+  color: #e6e6e6;
+  padding: 10px 27px;
+}
+
+.toggle-all:checked + label::before {
+  color: #737373;
+}
+
+/* List */
+.todo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.todo-list li {
+  position: relative;
+  font-size: 24px;
+  border-bottom: 1px solid #ededed;
+}
+
+.todo-list li:last-child {
+  border-bottom: none;
+}
+
+/* Checkbox (no SVG, pure CSS) */
+.todo-list .toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  opacity: 0; /* input hidden, label draws */
+  margin: auto 0;
+}
+
+.todo-list .toggle + label {
+  position: relative;
+  display: block;
+  padding: 15px 15px 15px 60px;
+  line-height: 1.2;
+  word-break: break-word;
+  transition: color 0.2s ease;
+}
+
+/* Circle */
+.todo-list .toggle + label::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border: 2px solid #ededed;
+  border-radius: 999px;
+}
+
+/* Check (only when checked) */
+.todo-list .toggle:checked + label::before {
+  border-color: #bddad5;
+}
+
+.todo-list .toggle:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  width: 7px;
+  height: 14px;
+  border: solid #5dc2af;
+  border-width: 0 3px 3px 0;
+  transform: translateY(-60%) rotate(45deg);
+}
+
+.todo-list li.completed .toggle + label {
+  color: #d9d9d9;
+  text-decoration: line-through;
+}
+
+/* Delete button */
+.todo-list .destroy {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  margin: auto 0;
+  font-size: 30px;
+  color: #cc9a9a;
+  transition: color 0.2s ease;
+}
+
+.todo-list .destroy::after {
+  content: "×";
+}
+
+.todo-list li:hover .destroy {
+  display: block;
+}
+
+.todo-list .destroy:hover {
+  color: #af5b5e;
+}
+
+/* Footer (flex layout, no float/absolute) */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 10px 15px;
+  color: var(--muted);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.todo-count strong {
+  font-weight: 300;
+}
+
+.filters {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 6px;
+}
+
+.filters li a {
+  padding: 3px 7px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.filters li a:hover {
+  border-color: var(--accent-soft);
+}
+
+.filters li a.selected {
+  border-color: var(--accent);
+}
+
+.clear-completed:hover {
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 430px) {
+  .footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filters {
+    justify-content: center;
+  }
+}
+
