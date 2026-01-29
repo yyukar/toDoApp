@@ -92,17 +92,19 @@ export default function App() {
                 <li key={t.id} className={t.done ? "completed" : ""}>
                   <div className="view">
                     <input
+                      id={`todo-${t.id}`}
                       className="toggle"
                       type="checkbox"
                       checked={t.done}
                       onChange={() => toggleTodo(t.id)}
                     />
-                    <label>{t.text}</label>
+                    <label htmlFor={`todo-${t.id}`}>{t.text}</label>
                     <button className="destroy" onClick={() => removeTodo(t.id)} />
                   </div>
                 </li>
               ))}
             </ul>
+
           </section>
         )}
 
