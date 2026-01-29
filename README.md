@@ -8,7 +8,7 @@ This project keeps the classic **TodoMVC HTML/CSS class names** (so the UI looks
 
 ## Live Demo
 
-- [Vercel live demo](https://question-app-react-sable.vercel.app/)
+- [Vercel live demo](https://to-do-app-gray-alpha.vercel.app)
 
 ---
 
